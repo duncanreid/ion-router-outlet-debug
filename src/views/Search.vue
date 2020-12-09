@@ -2,26 +2,28 @@
   <ion-page>
     <ion-header :translucent="true">
       <ion-toolbar>
-        <ion-title>Home</ion-title>
+        <ion-title>Search Page</ion-title>
       </ion-toolbar>
     </ion-header>
     
     <ion-content :fullscreen="true">
       <ion-header collapse="condense">
         <ion-toolbar>
-          <ion-title size="large">Home</ion-title>
+          <ion-title size="large">Search Page</ion-title>
         </ion-toolbar>
       </ion-header>
     
       <div id="container">
-
-        <h1>Home Page</h1>
-        <input style="color:black;" placeholder="search..." type="text" v-model="query">
+          <h1>Seach Page</h1>
+        <input type="text" style="color:black;" v-model="query" placeholder="search page search" >
         <ion-button color="primary" @click="go">
             search
         </ion-button>
+        <ion-button color="primary" @click="goHome">
+            home
+        </ion-button>
         <ion-button color="primary" @click="goAbout">
-            About
+            about
         </ion-button>
       </div>
     </ion-content>
@@ -30,8 +32,8 @@
 
 <script lang="ts">
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButton } from '@ionic/vue';
-import { useRouter } from 'vue-router';
 import { defineComponent, ref } from 'vue';
+import { useRouter } from 'vue-router';
 
 export default defineComponent({
   name: 'Home',
@@ -40,8 +42,7 @@ export default defineComponent({
     IonHeader,
     IonPage,
     IonTitle,
-    IonToolbar,
-    IonButton
+    IonToolbar, IonButton
   },
   setup() {
       const router = useRouter();
@@ -51,6 +52,9 @@ export default defineComponent({
   methods: {
       go() {
           this.router.push({ name: 'search', params: { term: this.query }})
+      },
+      goHome() {
+          this.router.push({ name: 'home'})
       },
       goAbout() {
           this.router.push({ name: 'about'})

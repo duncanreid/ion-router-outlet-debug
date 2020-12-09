@@ -2,26 +2,25 @@
   <ion-page>
     <ion-header :translucent="true">
       <ion-toolbar>
-        <ion-title>Home</ion-title>
+        <ion-title>About</ion-title>
       </ion-toolbar>
     </ion-header>
     
     <ion-content :fullscreen="true">
       <ion-header collapse="condense">
         <ion-toolbar>
-          <ion-title size="large">Home</ion-title>
+          <ion-title size="large">About</ion-title>
         </ion-toolbar>
       </ion-header>
     
       <div id="container">
-
-        <h1>Home Page</h1>
-        <input style="color:black;" placeholder="search..." type="text" v-model="query">
-        <ion-button color="primary" @click="go">
-            search
+        
+        <h1 style="color:#fff;">About Page</h1>
+        <ion-button color="primary" @click="goHome">
+            home
         </ion-button>
-        <ion-button color="primary" @click="goAbout">
-            About
+        <ion-button color="primary" @click="goSearch">
+            search
         </ion-button>
       </div>
     </ion-content>
@@ -49,11 +48,11 @@ export default defineComponent({
       return { router, query }
   },
   methods: {
-      go() {
-          this.router.push({ name: 'search', params: { term: this.query }})
+      goSearch() {
+          this.router.push({ name: 'search', params: { term: 'about' }})
       },
-      goAbout() {
-          this.router.push({ name: 'about'})
+      goHome() {
+          this.router.push({ name: 'home'})
       }
   }
 });
